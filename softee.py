@@ -9,7 +9,7 @@ import secrets
 office = (37.4074303728006, -122.070557984898)
 #url = 'http://nyus.joshuawise.com/softee.json'
 url = 'https://www.followmee.com/api/tracks.aspx?key=b8f203caee3bdfc3264240173caac188&username=mistersofteenorcal&output=json&function=currentforalldevices'
-max_age = 300
+max_age = 600
 max_dist = 3
 
 geolocator = geopy.geocoders.Nominatim(user_agent = "softee-tracker/0.1")
@@ -44,6 +44,7 @@ def get_trucks():
     now = datetime.now(timezone.utc)
     
     if "Error" in d:
+        print(f"Error: {d['Error']}")
         return {}
     
     trucks = {}
